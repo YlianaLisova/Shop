@@ -12,5 +12,8 @@ module.exports = {
     },
     deleteProductById: (params = {}) => {
         return Product.deleteOne(params);
+    },
+    updateProductById: (params, productData, options = {new: true}) => {
+        return Product.findOneAndUpdate(params, productData, options)
     }
 }

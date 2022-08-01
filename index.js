@@ -6,10 +6,11 @@ const app = express();
 app.use(express.json());
 
 const {PORT, MONGO_URL} = require("./constants/constants");
-const {productRouter} = require("./routes");
+const {productRouter, userRouter} = require("./routes");
 
 
 app.use("/api/products", productRouter);
+app.use("/api/users", userRouter);
 
 mongoose.connect(MONGO_URL)
     .then(() => console.log('Connection is successful'))
